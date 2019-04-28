@@ -61,5 +61,19 @@ export default {
     */
     extend(config, ctx) {
     }
-  }
+  },
+
+  /*
+  ** Customise the generated output folder
+   */
+  generate: {
+    dir: 'public'
+  },
+
+  /*
+  ** Customize the base url
+  */
+  router: {
+    base: '/save-the-date-front-end/' //this is whatever the project is named
+  },
 }
