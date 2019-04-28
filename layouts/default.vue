@@ -2,10 +2,10 @@
   <div>
     <nav-bar></nav-bar>
 
-    <section class="main-content columns">
+    <section class="main-content">
 
-      <div class="container column is-10">
-        <nuxt />
+      <div class="container">
+        <nuxt/>
       </div>
 
     </section>
@@ -13,11 +13,17 @@
 </template>
 
 <script>
-import NavBar from '~/components/NavBar'
+  import NavBar from '~/components/NavBar';
 
-export default {
-  components: {
-    NavBar
-  },
-}
+  export default {
+    components: {
+      NavBar,
+    },
+
+    head: {
+      bodyAttrs: {
+        class: 'has-navbar-fixed-top',
+      },
+    },
+  };
 </script>
