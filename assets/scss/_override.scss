@@ -1,0 +1,13 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+/*
+ * Override Bulma's stuff here
+ */
+
+// Disable full-screen
+$fullhd-enabled: false;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
