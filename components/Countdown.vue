@@ -13,61 +13,57 @@
         <h1 class="subtitle is-1 has-text-weight-light digits">{{ minutes }}</h1>
         <h5 class="title is-5 text">Minutes</h5>
       </div>
-      <div class="column">
-        <h1 class="subtitle is-1 has-text-weight-light digits">{{ seconds }}</h1>
-        <h5 class="title is-5 text">Seconds</h5>
-      </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  props: {
-    date: String
-  },
+  const MILLISECONDS_IN_A_MINUTE = 60000;
+  const MINUTES_IN_AN_HOUR = 60;
+  const HOURS_IN_A_DAY = 24;
+  const MINUTES_IN_A_DAY = MINUTES_IN_AN_HOUR * HOURS_IN_A_DAY;
 
-  computed: {
-    parsedDate() {
-      return timeToSeconds(Date.parse(this.date));
+  const getCurrentTime = _ => (new Date()).getTime();
+  const timeToMinutes = time => Math.trunc(time / MILLISECONDS_IN_A_MINUTE);
+  const now = _ => timeToMinutes(getCurrentTime());
+
+  export default {
+    props: {
+      date: String,
     },
 
-    timeLeft() {
-      return this.parsedDate - this.now
+    computed: {
+      parsedDate() {
+        return timeToMinutes(Date.parse(this.date));
+      },
+
+      timeLeft() {
+        return this.parsedDate - this.now;
+      },
+
+      minutes() {
+        return this.timeLeft % MINUTES_IN_AN_HOUR;
+      },
+
+      hours() {
+        return Math.trunc(this.timeLeft / MINUTES_IN_AN_HOUR) % HOURS_IN_A_DAY;
+      },
+
+      days() {
+        return Math.trunc(this.timeLeft / MINUTES_IN_A_DAY);
+      },
     },
 
-    seconds() {
-        return this.timeLeft % 60;
+    data() {
+      return {
+        now: now(),
+      };
     },
 
-    minutes() {
-        return Math.trunc(this.timeLeft / 60) % 60;
+    created() {
+      window.setInterval(_ => {
+        this.now = now();
+      }, MILLISECONDS_IN_A_MINUTE);
     },
-
-    hours() {
-        return Math.trunc(this.timeLeft / 60 / 60) % 24;
-    },
-
-    days() {
-        return Math.trunc(this.timeLeft / 60 / 60 / 24);
-    }
-  },
-
-  data() {
-    return {
-      now: now()
-    }
-  },
-
-  created() {
-    window.setInterval(_ => {
-      this.now = now();
-    }, 1000);
-  },
-};
-
-const getCurrentTime = _ => (new Date()).getTime();
-const timeToSeconds = time => Math.trunc(time / 1000);
-const now = _ => timeToSeconds(getCurrentTime());
-
+  };
 </script>
