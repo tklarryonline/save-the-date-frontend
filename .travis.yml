@@ -1,10 +1,11 @@
 language: node_js
+
 node_js:
-  - "8"
+  - '8'
 
 cache:
   directories:
-    - "node_modules"
+    - node_modules
 
 branches:
   only:
@@ -20,10 +21,12 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  # Set in travis-ci.org dashboard, marked secure
-  # https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
-  github-token: $GITHUB_ACCESS_TOKEN
+  github-token: "$GITHUB_ACCESS_TOKEN"
   target-branch: gh-pages
   local-dir: dist
   on:
     branch: master
+
+notifications:
+  slack:
+    secure: nIDr/biQnPw3Z41Ohhoj83uCcYXuQfi+0NWtcE8YQCsOkuYt7uuIWEMXtsaP4N0UblrSmnazhSz2MPLclvT1b6hHrP4AVL6BumVWq6Ii1+EIlHRZ2CvZItQh2TUvWi92ajkBZrVu7HhvyQDqb8F919US/A7obgE1cmeWufWcR53i+eJzAOBhryN1rx1+wafovya3Nxm26in1eADYOjov8iUdOrY01cGNRRwxQsnRf7f4A4u00gs3PqwDcjbgxFXzY4DuXqG3Brs5Zv0JTE7Bscky36exnDgXiMA99kB++kYbXZ9H3RE/IhLyxOhZfaM9YNHNITXdS6E6iNiMOIVxTSQJ9NscXMUYd4aFPjkzxuWbE4n+fkqaXjNK4+dlpVsfjg22d4cN4+PIWCAAulT855Dq+0ozzdDwY9shfFuUEShOF1fZaNJnH+p6XuRGjnYoJ/hciTaDU7XZEvpigWN/CDcCoDH6ueEPhMs4FBChQjwqML/czDSAivOYjDtX3PfBhhnWMAJs7yYvj/ps2M2lSOjxicyDdncveixlAQKx/5cGqz7DesRfv/VmvDOJdZ5YUWfFnzJupPUaHiDdZ0w/14ngt22L1RQiD5JNWULApryXD4SYK5oq0q8ZnZBvVftDkgmV4KmV2L4Ddflf1mtMqwtxflI4F3UnPb1UpHcKoCI=
