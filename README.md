@@ -1,8 +1,10 @@
-# save-the-date-frontend
+# Save the Date
 
-> Luan Nguyen &amp; Minh Vu are getting married
+> Luan Nguyen & Minh Vu are getting married!!!
 
 ## Build Setup
+
+This static SPA front-end is built using Nuxt.js
 
 ``` bash
 # install dependencies

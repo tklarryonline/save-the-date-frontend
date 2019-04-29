@@ -64,13 +64,6 @@ export default {
   },
 
   /*
-  ** Customise the generated output folder
-   */
-  generate: {
-    dir: 'public'
-  },
-
-  /*
   ** Customize the base url
   */
   router: {
