@@ -67,6 +67,6 @@ export default {
   ** Customize the base url
   */
   router: {
-    base: '/save-the-date-front-end/' //this is whatever the project is named
+    base: '/save-the-date-frontend/' //this is whatever the project is named
   },
 }
