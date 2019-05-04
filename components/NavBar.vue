@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar is-fixed-top container" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
+      <nuxt-link class="navbar-item brand" to="{ name: 'index' }">Luan & Minh</nuxt-link>
     </div>
     <div class="navbar-menu">
       <div class="navbar-end">
