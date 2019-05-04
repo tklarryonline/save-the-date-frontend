@@ -14,6 +14,9 @@
         >
           {{ item.title }}
         </nuxt-link>
+        <div class="navbar-item">
+          <b-button type="is-info" outlined>RSVP</b-button>
+        </div>
       </div>
     </div>
   </nav>

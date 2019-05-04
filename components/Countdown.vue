@@ -2,16 +2,16 @@
   <section class="has-text-centered">
     <div class="container columns">
       <div class="column">
-        <h1 class="subtitle is-1 has-text-weight-light digits">{{ days }}</h1>
-        <h5 class="title is-5 text">Days</h5>
+        <h1 class="digits">{{ days }}</h1>
+        <h5 class="text">Days</h5>
       </div>
       <div class="column">
-        <h1 class="subtitle is-1 has-text-weight-light digits">{{ hours }}</h1>
-        <h5 class="title is-5 text">Hours</h5>
+        <h1 class="digits">{{ hours }}</h1>
+        <h5 class="text">Hours</h5>
       </div>
       <div class="column">
-        <h1 class="subtitle is-1 has-text-weight-light digits">{{ minutes }}</h1>
-        <h5 class="title is-5 text">Minutes</h5>
+        <h1 class="digits">{{ minutes }}</h1>
+        <h5 class="text">Minutes</h5>
       </div>
     </div>
   </section>
@@ -67,3 +67,20 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/main.scss';
+
+  .digits,
+  .text {
+    @extend .has-text-white-bis;
+  }
+
+  .digits {
+    @extend .subtitle, .is-1, .has-text-weight-light;
+  }
+
+  .text {
+    @extend .title, .is-5;
+  }
+</style>
