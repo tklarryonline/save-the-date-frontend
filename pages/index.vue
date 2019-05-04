@@ -24,10 +24,21 @@
   @import '@/assets/scss/main.scss';
 
   #welcome.hero {
-    background-image: url("~static/main_bg@2x.jpg");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+
+    @include touch {
+      background-image: url("~static/main_bg@0,5x.jpg");
+    }
+
+    @media screen and (max-width: 1920px) {
+      background-image: url("~static/main_bg@1x.jpg");
+    }
+
+    @media screen and (min-width: 1921px) {
+      background-image: url("~static/main_bg@2x.jpg");
+    }
   }
 </style>
